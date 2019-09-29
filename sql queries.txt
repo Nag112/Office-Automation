@@ -1,0 +1,45 @@
+EMPLOYEE:
+select Name from Employee where ID='$emp_id';
+select Address from Employee where ID='$emp_id';
+select Salary from Employee where ID='$emp_id';
+select Bdate from Employee where ID='$emp_id';
+select Phoneno from Employee where ID='$emp_id';
+select DeptNo from Employee where ID='$emp_id';
+select ManagerID from Employee where ID='$emp_id';
+select Leaves from Employee where ID='$emp_id';
+select Bank from Employee where ID='$emp_id';
+select Accntno from Employee where ID='$emp_id';
+select EmailID from Employee where ID='$emp_id';
+select Password from Employee where ID='$emp_id';
+
+insert into Employee(Name,ID,Address,Salary,Bdate,Phoneno,DeptNo,ManagerID,Leaves,Bank,Accntno,EmailID,Password)values('$_POST[name]','$_POST[emp_id]','$_POST[address]','$_POST[salary]',
+'$_POST[bdate]','$_POST[phoneno]','$_POST[deptno]','$_POST[manid]','$_POST[leaves]','$_POST[bank]','$_POST[accntno]','$_POST[emailid]','$_POST[pw]');
+
+DEPARTMENT:
+select DeptName from Department where Dno='$dept_no';
+select HOD from Department where Dno='$dept_no';
+select Name from Employee,Department where Department.HOD=Employee.ID;//name of hod
+select Address from Employee,Department where Department.HOD=Employee.ID;
+//select Salary from Employee,Department where Department.HOD=Employee.ID;
+select Bdate from Employee,Department where Department.HOD=Employee.ID;
+select Phoneno from Employee,Department where Department.HOD=Employee.ID;
+//select Bank from Employee,Department where Department.HOD=Employee.ID;
+//select Accntno from Employee,Department where Department.HOD=Employee.ID;
+select EmailID from Employee,Department where Department.HOD=Employee.ID;
+select No_of_projects from Department where Dno='$dept_no';
+
+PROJECT:
+select PName from Project where PID='$pro_id';
+select MID from Project where PID='$pro_id';
+select Dnum from Project where PID='$pro_id';
+select Name from Employee,Project where Project.MID=Employee.ID;
+select Address from Project,Employee where Project.MID=Employee.ID;
+select Bdate from Project,Employee where Project.MID=Employee.ID;
+select Phoneno from Project,Employee where Project.MID=Employee.ID;
+select EmailID from Project,Employee where Project.MID=Employee.ID;
+
+insert into Project(PName,MID,Dnum,PID)values('$_POST[pname]','$_POST[mid]','$_POST[dnum]','$_POST[pro_id]');
+
+
+
+
